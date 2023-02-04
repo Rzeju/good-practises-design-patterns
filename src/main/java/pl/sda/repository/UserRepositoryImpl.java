@@ -27,16 +27,21 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void deleteById(long id) {
-
+        Set<User> users = DataBase.getUsers();
+        for (User user : users) {
+            if (user.getId() == id) {
+                DataBase.getUsers().remove(user);
+            }
+        }
     }
 
     @Override
     public void delete(User user) {
-
+        DataBase.getUsers().remove(user);
     }
 
     @Override
     public Set<User> getAll() {
-        return null;
+        return DataBase.getUsers();
     }
 }

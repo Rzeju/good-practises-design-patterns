@@ -18,6 +18,10 @@ public class Main {
         System.out.println(user1);
         System.out.println(user2);
 
+        userRepository.delete(user1);
+
+        System.out.println(userRepository.getAll());
+
 
     }
 
